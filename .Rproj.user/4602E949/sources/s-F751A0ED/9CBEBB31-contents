@@ -1,0 +1,31 @@
+library(openxlsx)
+
+typeu <- c('留学经验', '留学生活', '对话访谈', '海外资讯')
+
+gisjyfx <- read.xlsx('../分配.xlsx', sheet = 1, startRow = 2)
+gisjyfx$type <- typeu[1]
+gisother <- read.xlsx('../分配.xlsx', sheet = 2, startRow = 2)
+gisother$type <- typeu[2]
+for (i in 3:4) {
+  gisotheru <- read.xlsx('../分配.xlsx', sheet = i, startRow = 2)
+  gisotheru$type <- typeu[i]
+  gisother <- rbind(gisother, gisotheru)
+  
+}
+
+print(paste('目前已推送文章：', nrow(na.omit(gisjyfx[, 1:11])) + 
+              nrow(na.omit(gisother)) + 1, sep = ''))
+
+
+library(plotly)
+
+dfsta <- data.frame(type = typeu, num = c(nrow(na.omit(gisjyfx[, 1:11])), 
+                                          nrow(subset(na.omit(gisother), na.omit(gisother)[,7] == typeu[2])), 
+                                          nrow(subset(na.omit(gisother), na.omit(gisother)[,7] == typeu[3])), 
+                                          nrow(subset(na.omit(gisother), na.omit(gisother)[,7] == typeu[4]))))
+
+p <- plot_ly(dfsta, labels = ~type, values = ~num, type = 'pie')%>%
+  layout(title = '不同类型推送文章数量',
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+p
