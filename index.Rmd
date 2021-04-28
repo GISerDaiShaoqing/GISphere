@@ -81,8 +81,9 @@ library(ggplot2)
 library(plotly)
 
 gisjyfxdf <- na.omit(gisjyfx[, 1:11])
+colnames(gisjyfxdf) <- c('Date', 'ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
 
-regiondf <- data.frame(table(gisjyfxdf$地区))
+regiondf <- data.frame(table(gisjyfxdf$Region))
 colnames(regiondf) <- c('countries', 'num')
 
 p1 <- ggplot(regiondf) + 
@@ -99,6 +100,7 @@ p1
 library(ggplot2)
 
 gisjyfxdf <- na.omit(gisjyfx[, 1:11])
+colnames(gisjyfxdf) <- c('Date', 'ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
 
 yeardf <- data.frame(table(gisjyfxdf$Year))
 colnames(yeardf) <- c('year', 'num')
@@ -117,8 +119,9 @@ MS/PhD
 library(ggplot2)
 
 gisjyfxdf <- na.omit(gisjyfx[, 1:11])
+colnames(gisjyfxdf) <- c('Date', 'ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
 
-msphddf <- data.frame(table(gisjyfxdf$`MS/PHD`))
+msphddf <- data.frame(table(gisjyfxdf$MSPHD))
 colnames(msphddf) <- c('degree', 'num')
 
 p3 <- ggplot(msphddf) + 
