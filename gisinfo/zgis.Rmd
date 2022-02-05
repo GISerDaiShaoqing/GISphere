@@ -1,0 +1,25 @@
+---
+title: "zgis"
+author: ""
+date: ""
+output: word_document
+---
+
+### 萨尔茨堡大学
+
+**University of Salzburg (Uni-Salzburg)**
+
+奥地利，维也纳市
+
+GIS相关系所：[Interfaculty Dept. of geoinformatics-Z_GIS](https://zgis.at/)
+
+萨尔茨堡大学（Paris Lodron University Salzburg, PLUS）建立于1622年，由当时的大主教Paris Lodron创建，是一所奥地利国立综合性大学，拥有神学、法学、人文科学、自然科学四大主要经典院系。其中由Strobl Josef领头的Z_GIS学院成立超过35年，拥有30余名研究人员，主要的研究领域包括空间图形理解、图像分析、真实世界建模、对地观测技术、地学可视化等。近年来，Z_GIS在欧洲框架项目、国家研究项目等取得不少成果，例如减灾、自然资源管理、规划和政策支持等。 Z_GIS有两个非常有名的项目。一个是应用地理信息技术论坛(AGIT)，另一个UNGIS国际项目。AGIT每年在7月初在萨尔茨堡的Nawi举办，是应用地理信息学论坛和展览盛会。UNGIS联合会是全球最大的地理信息科学远程学习网络。当前已经包括了15个全球合作伙伴。它提供了地理信息科学专业学习、硕士学位两个主要的课程。 学位：Geography Bachelor； Applied geoinformatics MSc.
+
+相关导师：
+
+- **[Josef Strobl](http://jstrobl.zgis.net/)**: topographics cartography, methods in spatial analysis, foundations of geoinformatics, analysis and modeling;
+- **[Bernd Resch](http://www.uni-salzburg/at/zgis/resch)**: human-centred geoinformatics, geospatial machine learning, urban geoinformatics, real-time and smart cities, crowdsourcing, digital health;
+- **[Stefan Lang](http://www.uni-salzburg.at/zgis/lang)**: object-based image analysis (OBIA), systemic thinking, multi-scalar and multi-dimensional spatial analysis, Decision support;
+- **[Barbara Hofer](https://www.uni-salzburg.at/index.php?id=56881&L=1)**: geovisualization and advanced cartography;
+- **[Shahnawaz](https://www.uni-salzburg.at/index.php?id=32500&L=1)**: image processing, rainfall and temperature analysis;
+- **[Dirk Tiede](http://www.uni-salzburg/at/zgis/tiede)**: application development, Arcpy/QGIS development, big earth data, object-oriented image analysis, geoprocessing.

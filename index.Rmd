@@ -36,22 +36,20 @@ opts_knit$set(width=75)
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(openxlsx)
 
-typeu <- c('留学经验', '留学生活', '对话访谈', '海外资讯')
+typeu <- c('留学经验', '留学生活')
 
 gisjyfx <- read.xlsx('../分配.xlsx', sheet = 1, startRow = 2)
 gisjyfx$type <- typeu[1]
 gistlist <- list()
 gistlist[[1]] <- gisjyfx
-for (i in 2:4) {
+for (i in 1:2) {
   gisotheru <- read.xlsx('../分配.xlsx', sheet = i, startRow = 2)
   gisotheru$type <- typeu[i]
   gistlist[[i]] <- gisotheru
 }
 
-print(paste('目前已推送文章：', nrow(gisjyfx[which(gisjyfx$状态=='已发布'), ]) + 
-              nrow(gistlist[[2]][which(gistlist[[2]]$状态=='已发布'), ]) + 
-              nrow(gistlist[[3]][which(gistlist[[3]]$状态=='已发布'), ]) + 
-              nrow(gistlist[[4]][which(gistlist[[4]]$状态=='已发布'), ]) + 1, sep = ''))
+print(paste('目前已推送留学经验与留学生活文章：', nrow(gisjyfx[which(gisjyfx$状态=='已发布'), ]) + 
+              nrow(gistlist[[2]][which(gistlist[[2]]$状态=='已发布'), ]) + 1, sep = ''))
 
 ```
 
@@ -61,9 +59,7 @@ print(paste('目前已推送文章：', nrow(gisjyfx[which(gisjyfx$状态=='已�
 library(plotly)
 
 dfsta <- data.frame(type = typeu, num = c(nrow(gisjyfx[which(gisjyfx$状态=='已发布'), ]), 
-                                          nrow(gistlist[[2]][which(gistlist[[2]]$状态=='已发布'), ]), 
-                                          nrow(gistlist[[3]][which(gistlist[[3]]$状态=='已发布'), ]), 
-                                          nrow(gistlist[[4]][which(gistlist[[4]]$状态=='已发布'), ])))
+                                          nrow(gistlist[[2]][which(gistlist[[2]]$状态=='已发布'), ])))
 
 p <- plot_ly(dfsta, labels = ~type, values = ~num, type = 'pie')%>%
   layout(title = '不同类型推送文章数量',
@@ -82,8 +78,8 @@ p
 library(ggplot2)
 library(plotly)
 
-gisjyfxdf <- gisjyfx[which(gisjyfx$状态=='已发布'), c(1, 4:12, 14)]
-colnames(gisjyfxdf) <- c('Date', 'ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
+gisjyfxdf <- gisjyfx[which(gisjyfx$状态=='已发布'), c(4, 8:15, 17)]
+colnames(gisjyfxdf) <- c('ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
 
 regiondf <- data.frame(table(gisjyfxdf$Region))
 colnames(regiondf) <- c('region', 'num')
@@ -101,8 +97,8 @@ p1
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(ggplot2)
 
-gisjyfxdf <- gisjyfx[which(gisjyfx$状态=='已发布'), c(1, 4:12, 14)]
-colnames(gisjyfxdf) <- c('Date', 'ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
+gisjyfxdf <- gisjyfx[which(gisjyfx$状态=='已发布'), c(4, 8:15, 17)]
+colnames(gisjyfxdf) <- c('ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
 
 yeardf <- data.frame(table(gisjyfxdf$Year))
 colnames(yeardf) <- c('year', 'num')
@@ -120,8 +116,8 @@ MS/PhD
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(ggplot2)
 
-gisjyfxdf <- gisjyfx[which(gisjyfx$状态=='已发布'), c(1, 4:12, 14)]
-colnames(gisjyfxdf) <- c('Date', 'ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
+gisjyfxdf <- gisjyfx[which(gisjyfx$状态=='已发布'), c(4, 8:15, 17)]
+colnames(gisjyfxdf) <- c('ID', 'Region', 'School', 'MSPHD', 'Title', 'Year', 'Note', 'Author', 'Editor', 'Status')
 
 msphddf <- data.frame(table(gisjyfxdf$MSPHD))
 colnames(msphddf) <- c('degree', 'num')
@@ -133,3 +129,5 @@ p3 <- ggplotly(p3)
   
 p3
 ```
+
+
